@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.16)
+project(BullTPC CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded")
+add_executable(BullTPC WIN32 src/main.cpp res/app.rc)
+target_compile_options(BullTPC PRIVATE /utf-8 /O2)
+target_link_libraries(BullTPC ws2_32 iphlpapi dnsapi winhttp dwmapi gdi32 user32)
+set_target_properties(BullTPC PROPERTIES LINK_FLAGS "/MANIFEST:NO")
